@@ -1,17 +1,31 @@
 import { Router } from "express";
-import evaluate from "../evaluator"; // evaluatorがtsならOK。jsなら後述の注意
+import { PrismaClient } from "@prisma/client";
+import evaluate from "../evaluator";
 
 const router = Router();
+const prisma = new PrismaClient();
 
 // POST /judge
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const requestData = req.body;
+
     const result = evaluate(requestData);
-    res.status(200).json(result);
+
+    // ===== DB保存（MVP）=====
+    await prisma.gradJudgeData.create({
+      data: {
+        payload: {
+          input: requestData,
+          result,
+        },
+      },
+    });
+
+    return res.status(200).json(result);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.error("judge error:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
