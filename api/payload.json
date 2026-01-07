@@ -1,0 +1,18 @@
+{
+  "program": "information_systems",
+  "credits": {
+    "humanities": { "required": 0, "elective": 20 },
+    "foreign_language": { "required": 8, "elective": 2 },
+    "natural_science": { "required": 6, "elective": 14 },
+    "engineering_basic": { "required": 10, "elective": 0 },
+    "group_common": { "required": 16, "elective": 10 },
+    "major": { "required": 28, "elective": 24 }
+  },
+  "specialConditions": {
+    "basic_science_completed": ["chemistry", "physics"],
+    "design_practice_3": true,
+    "design_practice_4": false,
+    "design_practice_5": true
+  }
+}
+

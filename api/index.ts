@@ -1,12 +1,13 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import judgeRouter from "./src/routes/judge"; // index.tsがルートならこう。場所により調整
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello Graduation Judge API (TypeScript)");
-});
+app.use(express.json());
 
+app.use("/judge", judgeRouter);
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`API server running at http://localhost:${PORT}`);
 });
