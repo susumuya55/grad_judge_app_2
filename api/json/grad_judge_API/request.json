@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "clientVersion": "0.1.0",
+    "submittedAt": "2025-12-16T14:32:00+09:00"
+  },
+  "program": "information_systems",
+  "credits": {
+    "humanities_elective": 20,
+
+    "english_required": 8,
+    "english_elective": 2,
+
+    "natural_required": 6,
+    "natural_elective": 14,
+
+    "engineering_basic_required": 10,
+    "engineering_basic_elective": 10,
+
+    "common_required": 16,
+    "common_elective": 10,
+
+    "major_required": 28,
+    "major_elective": 24
+  },
+  "specialConditions": {
+    "basic_science_completed": ["chemistry", "physics"],
+    "design_practice_3": true,
+    "design_practice_4": false,
+    "design_practice_5": true
+  }
+}

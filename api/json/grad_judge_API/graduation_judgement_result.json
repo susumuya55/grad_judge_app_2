@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "rulebookVersion": "2025",
+    "evaluatedAt": "2025-12-16T15:40:00+09:00"
+  },
+
+  "user_info": {
+    "faculty": "engineering",
+    "group": "information_life",
+    "program": "information_systems"
+  },
+
+  "summary": {
+    "isEligible": false,
+    "unmetDomains": [
+      "natural_science",
+      "group_common"
+    ]
+  },
+
+  "details": {
+    "normalConditions": {
+      "humanities": {
+        "required": {
+          "rule": 0,
+          "input": 12,
+          "diff": 12,
+          "satisfied": true
+        },
+        "elective": {
+          "rule": 12,
+          "input": 12,
+          "diff": 0,
+          "satisfied": true
+        }
+      },
+
+      "foreign_language": {
+        "required": {
+          "rule": 8,
+          "input": 6,
+          "diff": -2,
+          "satisfied": false
+        },
+        "elective": {
+          "rule": 2,
+          "input": 4,
+          "diff": 2,
+          "satisfied": true
+        }
+      },
+
+      "natural_science": {
+        "required": {
+          "rule": 6,
+          "input": 10,
+          "diff": 4,
+          "satisfied": true
+        },
+        "elective": {
+          "rule": 14,
+          "input": 6,
+          "diff": -8,
+          "satisfied": false
+        }
+      },
+
+      "engineering_basic": {
+        "required": {
+          "rule": 10,
+          "input": 8,
+          "diff": -2,
+          "satisfied": false
+        },
+        "elective": {
+          "rule": 0,
+          "input": 0,
+          "diff": 0,
+          "satisfied": true
+        }
+      },
+
+      "group_common": {
+        "required": {
+          "rule": 18,
+          "input": 16,
+          "diff": -2,
+          "satisfied": false
+        },
+        "elective": {
+          "rule": 8,
+          "input": 10,
+          "diff": 2,
+          "satisfied": true
+        }
+      },
+
+      "major": {
+        "required": {
+          "rule": 28,
+          "input": 40,
+          "diff": 12,
+          "satisfied": true
+        },
+        "elective": {
+          "rule": 24,
+          "input": 20,
+          "diff": -4,
+          "satisfied": false
+        }
+      }
+    },
+
+    "specialConditions": {
+      "basic_science": {
+        "domain": "natural_science",
+        "rule": {
+          "type": "atLeast",
+          "count": 2,
+          "from": ["physics", "chemistry", "biology"]
+        },
+        "input": {
+          "completed": ["chemistry", "physics"]
+        },
+        "result": {
+          "earnedCount": 2,
+          "missing": ["biology"],
+          "satisfied": true
+        }
+      },
+
+      "engineering_design_practice": {
+        "domain": "major",
+        "rule": {
+          "type": "all",
+          "required": [
+            "design_practice_3",
+            "design_practice_4",
+            "design_practice_5"
+          ]
+        },
+        "input": {
+          "completed": [
+            "design_practice_3",
+            "design_practice_5"
+          ]
+        },
+        "result": {
+          "missing": ["design_practice_4"],
+          "satisfied": false
+        }
+      }
+    }
+  }
+}
