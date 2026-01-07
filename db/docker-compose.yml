@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: grad_judge_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: grad_user
+      POSTGRES_PASSWORD: grad_palss
+      POSTGRES_DB: grad_judge_dev
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
